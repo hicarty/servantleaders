@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ServantLeaders UK</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Instrument+Serif:ital@0;1&family=Geist:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* ─── TOKENS ─────────────────────────────────────────────── */
+:root {
+  --bg:           #fafaf8;
+  --surface:      #f4f3f0;
+  --border:       rgba(0,0,0,.09);
+  --secondary:    rgba(0,0,0,.04);
+
+  /* brief-specified */
+  --ink:          lab(5.26385% -.391565 -1.40753);
+  --accent:       lab(48.5433% -22.8809 -6.92971);
+  --logo:         #c4622d;
+
+  --muted:        lab(44% -.3 -1);
+  --subtle:       lab(60% -.3 -1);
+
+  /* type */
+  --serif-index:  'DM Serif Display', Georgia, serif;        /* nav + list */
+  --serif-art:    'Instrument Serif', Georgia, serif;        /* article heads */
+  --body:         'Geist', system-ui, sans-serif;
+  --mono:         'DM Mono', 'Courier New', monospace;
+
+  --max-prose: 680px;
+  --max-site:  1100px;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--body);
+  font-size: 17px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ─── NAV ────────────────────────────────────────────────── */
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  padding: 0 1.5rem;
+}
+.nav-inner {
+  max-width: var(--max-site);
+  margin: 0 auto;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-logo {
+  font-family: var(--serif-index);
+  font-size: 1.25rem;
+  color: var(--logo);
+  cursor: pointer;
+  text-decoration: none;
+  letter-spacing: -.01em;
+}
+.nav-links {
+  display: flex;
+  gap: 1.75rem;
+  list-style: none;
+}
+.nav-links a {
+  font-family: var(--mono);
+  font-size: .7rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-decoration: none;
+  transition: color .2s;
+}
+.nav-links a:hover { color: var(--ink); }
+
+/* ─── VIEWS ──────────────────────────────────────────────── */
+.view { display: none; }
+.view.active { display: block; }
+
+/* ─── INDEX ──────────────────────────────────────────────── */
+.index-header {
+  max-width: var(--max-site);
+  margin: 0 auto;
+  padding: 4.5rem 1.5rem 3rem;
+  border-bottom: 1px solid var(--border);
+}
+.index-eyebrow {
+  font-family: var(--mono);
+  font-size: .68rem;
+  letter-spacing: .14em;
+  color: var(--accent);
+  margin-bottom: 1.1rem;
+}
+.index-title {
+  font-family: var(--serif-index);
+  font-size: clamp(2.4rem, 6vw, 4rem);
+  line-height: 1.0;
+  color: var(--ink);
+  letter-spacing: -.02em;
+  max-width: 18ch;
+}
+.index-title em {
+  font-style: italic;
+  color: var(--accent);
+}
+.index-sub {
+  margin-top: 1.25rem;
+  font-size: .94rem;
+  color: var(--muted);
+  max-width: 52ch;
+  line-height: 1.65;
+}
+
+/* post list — exactly as specified in brief */
+.post-list {
+  max-width: var(--max-site);
+  margin: 0 auto;
+  list-style: none;
+  padding: 0 1.5rem;
+  /* mt-12 border-t border-border already applied via wrapping class */
+}
+.post-list.mt-12 { margin-top: 3rem; }
+.post-list.border-t { border-top: 1px solid var(--border); }
+
+.post-list li a {
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+  border-bottom: 1px solid var(--border);
+  padding: 1.5rem 0;
+  text-decoration: none;
+  transition: background .18s;
+  cursor: pointer;
+}
+.post-list li a:hover { background: var(--secondary); }
+
+/* md: row layout */
+@media (min-width: 768px) {
+  .post-list li a {
+    flex-direction: row;
+    align-items: center;
+    gap: 2rem;
+    padding: 1.5rem .5rem;
+  }
+}
+
+.post-date {
+  font-family: var(--mono);
+  font-size: .72rem;
+  letter-spacing: .1em;
+  color: var(--subtle);
+  white-space: nowrap;
+}
+@media (min-width: 768px) { .post-date { width: 7rem; flex-shrink: 0; } }
+
+.post-title {
+  flex: 1;
+  font-family: var(--serif-index);
+  font-size: 1.25rem;
+  line-height: 1.25;
+  color: var(--ink);
+  letter-spacing: -.01em;
+}
+@media (min-width: 768px) { .post-title { font-size: 1.5rem; } }
+
+.post-meta {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-shrink: 0;
+}
+.post-tag {
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: .2rem .75rem;
+  font-family: var(--mono);
+  font-size: .68rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.post-arrow {
+  font-family: var(--mono);
+  color: var(--ink);
+  transition: transform .2s;
+}
+.post-list li a:hover .post-arrow { transform: translateX(4px); }
+
+/* ─── ARTICLE ────────────────────────────────────────────── */
+.article-wrap {
+  max-width: var(--max-site);
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+.article-back {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  font-family: var(--mono);
+  font-size: .7rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  cursor: pointer;
+  border: none;
+  background: none;
+  padding: 1.5rem 0;
+  text-decoration: none;
+  transition: color .2s;
+}
+.article-back:hover { color: var(--ink); }
+.article-back span { transition: transform .2s; display: inline-block; }
+.article-back:hover span { transform: translateX(-3px); }
+
+.article-header {
+  padding: 2rem 0 2.5rem;
+  border-bottom: 1px solid var(--border);
+  max-width: var(--max-prose);
+}
+.article-kicker {
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+  margin-bottom: 1.25rem;
+}
+.article-tag {
+  font-family: var(--mono);
+  font-size: .68rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: .2rem .75rem;
+}
+.article-date {
+  font-family: var(--mono);
+  font-size: .68rem;
+  letter-spacing: .08em;
+  color: var(--subtle);
+}
+.article-title {
+  font-family: var(--serif-art);
+  font-size: clamp(2rem, 5vw, 3.25rem);
+  line-height: 1.08;
+  color: var(--ink);
+  letter-spacing: -.02em;
+  font-weight: 400;
+}
+
+/* ─── PROSE ──────────────────────────────────────────────── */
+.prose {
+  max-width: var(--max-prose);
+  padding: 2.75rem 0 5rem;
+  font-family: var(--body);
+  font-size: 1.0625rem;
+  line-height: 1.78;
+  color: var(--ink);
+}
+.prose h2 {
+  font-family: var(--serif-art);
+  font-size: 1.65rem;
+  font-weight: 400;
+  letter-spacing: -.01em;
+  color: var(--ink);
+  margin: 2.5rem 0 .75rem;
+  line-height: 1.2;
+}
+.prose h3 {
+  font-family: var(--serif-art);
+  font-size: 1.2rem;
+  font-weight: 400;
+  font-style: italic;
+  color: var(--ink);
+  margin: 2rem 0 .5rem;
+}
+.prose p { margin-bottom: 1.35rem; }
+.prose p:last-child { margin-bottom: 0; }
+.prose ul, .prose ol {
+  padding-left: 1.4rem;
+  margin-bottom: 1.35rem;
+}
+.prose li { margin-bottom: .4rem; }
+.prose strong { font-weight: 500; }
+.prose em { font-style: italic; }
+.prose a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* pull quote */
+.prose blockquote {
+  margin: 2.5rem 0;
+  padding: 1.5rem 0 1.5rem 1.75rem;
+  border-left: 2px solid var(--accent);
+  color: var(--muted);
+  font-family: var(--serif-art);
+  font-size: 1.25rem;
+  font-style: italic;
+  line-height: 1.5;
+}
+
+/* inline tag / chip */
+.prose .chip {
+  font-family: var(--mono);
+  font-size: .68rem;
+  letter-spacing: .06em;
+  padding: .15rem .55rem;
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+/* section divider inside prose */
+.prose hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 2.5rem 0;
+}
+
+/* arrow list for the LinkedIn post style */
+.prose .arrow-list {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 1.35rem;
+  border-left: 2px solid var(--border);
+  padding-left: 1.25rem;
+}
+.prose .arrow-list li::before {
+  content: '→ ';
+  font-family: var(--mono);
+  color: var(--accent);
+  font-size: .85em;
+  margin-right: .25rem;
+}
+
+/* ─── FOOTER ─────────────────────────────────────────────── */
+footer {
+  border-top: 1px solid var(--border);
+  padding: 2rem 1.5rem;
+  text-align: center;
+}
+.footer-inner {
+  max-width: var(--max-site);
+  margin: 0 auto;
+  font-family: var(--mono);
+  font-size: .65rem;
+  letter-spacing: .1em;
+  color: var(--subtle);
+  text-transform: uppercase;
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a class="nav-logo" onclick="showIndex()" href="#">ServantLeadersUK</a>
+    <ul class="nav-links">
+      <li><a href="havencarty.wordpress.com" onclick="showIndex()">Writing</a></li>
+      <li><a href="#">About</a></li>
+    </ul>
+  </div>
+
+
+  <ul class="post-list mt-12 border-t border-border" id="post-list">
+
+    <li><a href="https://havencarty.wordpress.com/2024/10/27/harmonic-integrated-experiences/" onclick="showPost('wealth-creation')">
+      <span class="post-date font-mono text-xs tracking-wider text-muted-foreground md:w-28 md:shrink-0">Ongoing</span>
+      <span class="post-title flex-1 text-pretty font-serif text-xl tracking-tight text-foreground md:text-2xl">Deconstructing my idea of Wealth Creation</span>
+      <span class="post-meta flex items-center gap-4 md:shrink-0">
+        <span class="post-tag rounded-full border border-border px-3 py-1 font-mono text-[11px] uppercase tracking-wider text-muted-foreground">Finance</span>
+        <span class="post-arrow" aria-hidden="true">→</span>
+      </span>
+    </a></li>
+
+    <li><a href="https://havencarty.wordpress.com/2026/03/18/future-trends-for-ux-ui-designers-staying-relevant-to-2060/" onclick="showPost('ux-2060')">
+      <span class="post-date">18 Mar 2026</span>
+      <span class="post-title">Future Trends for UX/UI Designers: Staying Relevant to 2060</span>
+      <span class="post-meta">
+        <span class="post-tag">UX</span>
+        <span class="post-arrow" aria-hidden="true">→</span>
+      </span>
+    </a></li>
+
+    <li><a href="#" onclick="showPost('agile-ux')">
+      <span class="post-date">27 Oct 2024</span>
+      <span class="post-title">Building Integrated AgilePM — User eXperiences</span>
+      <span class="post-meta">
+        <span class="post-tag">Agile</span>
+        <span class="post-arrow" aria-hidden="true">→</span>
+      </span>
+    </a></li>
+
+    <li><a href="https://hicarty.medium.com/ebay-creates-accessibility-tool-for-designers-and-engineers-194ec69a168f" onclick="showPost('accessibility')">
+      <span class="post-date">03 Mar 2025</span>
+      <span class="post-title">eBay creates an accessibility tool for designers and engineers</span>
+      <span class="post-meta">
+        <span class="post-tag">Accessibility</span>
+        <span class="post-arrow" aria-hidden="true">→</span>
+      </span>
+    </a></li>
+
+    <li><a href="#" onclick="showPost('marshall')">
+      <span class="post-date">26 Jul 2024</span>
+      <span class="post-title">My experience working at Marshall Amplification PLC</span>
+      <span class="post-meta">
+        <span class="post-tag">Career</span>
+        <span class="post-arrow" aria-hidden="true">→</span>
+      </span>
+    </a></li>
+
+    <li><a href="#" onclick="showPost('safe')">
+      <span class="post-date">24 Mar 2025</span>
+      <span class="post-title">SAFe Scalable Agile Framework Updates</span>
+      <span class="post-meta">
+        <span class="post-tag">Agile</span>
+        <span class="post-arrow" aria-hidden="true">→</span>
+      </span>
+    </a></li>
+
+    <li><a href="#" onclick="showPost('lessons-industry')">
+      <span class="post-date">2017</span>
+      <span class="post-title">Lessons from Industry</span>
+      <span class="post-meta">
+        <span class="post-tag">Career</span>
+        <span class="post-arrow" aria-hidden="true">→</span>
+      </span>
+    </a></li>
+
+    <li><a href="#" onclick="showPost('dont-build-alone')">
+      <span class="post-date">Reflections</span>
+      <span class="post-title">Don't Build It Alone</span>
+      <span class="post-meta">
+        <span class="post-tag">Leadership</span>
+        <span class="post-arrow" aria-hidden="true">→</span>
+      </span>
+    </a></li>
+
+    <li><a href="#" onclick="showPost('leadership-management')">
+      <span class="post-date">Reflections</span>
+      <span class="post-title">Leadership vs. Management</span>
+      <span class="post-meta">
+        <span class="post-tag">Leadership</span>
+        <span class="post-arrow" aria-hidden="true">→</span>
+      </span>
+    </a></li>
+
+    <li><a href="#" onclick="showPost('routes-to-finance')">
+      <span class="post-date">Oct 2024</span>
+      <span class="post-title">Routes to Finance</span>
+      <span class="post-meta">
+        <span class="post-tag">Finance</span>
+        <span class="post-arrow" aria-hidden="true">→</span>
+      </span>
+    </a></li>
+
+    <li><a href="#" onclick="showPost('social-media')">
+      <span class="post-date">2025</span>
+      <span class="post-title">Why is it so hard for large organisations to just… post something?</span>
+      <span class="post-meta">
+        <span class="post-tag">Leadership</span>
+        <span class="post-arrow" aria-hidden="true">→</span>
+      </span>
+    </a></li>
+
+    <li><a href="#" onclick="showPost('building-team')">
+      <span class="post-date">Oct 2024</span>
+      <span class="post-title">Building the Team</span>
+      <span class="post-meta">
+        <span class="post-tag">Leadership</span>
+        <span class="post-arrow" aria-hidden="true">→</span>
+      </span>
+    </a></li>
+
+    <li><a href="https://havencarty.wordpress.com/2025/09/01/mergers-acquisitions-partnerships/" onclick="showPost('mergers')">
+      <span class="post-date">2025</span>
+      <span class="post-title">Mergers, Acquisitions &amp; Partnerships</span>
+      <span class="post-meta">
+        <span class="post-tag">Finance</span>
+        <span class="post-arrow" aria-hidden="true">→</span>
+      </span>
+    </a></li>
+
+  </ul>
+</nav>
+</div>
+
+<!-- ══ ARTICLE VIEW ══ -->
+<div class="view" id="view-article">
+  <div class="article-wrap">
+    <button class="article-back" onclick="showIndex()"><span>←</span> All posts</button>
+    <header class="article-header" id="article-header">
+      <div class="article-kicker">
+        <span class="article-tag" id="art-tag"></span>
+        <span class="article-date" id="art-date"></span>
+      </div>
+      <h1 class="article-title" id="art-title"></h1>
+    </header>
+    <div class="prose" id="art-body"></div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">ServantLeaders &nbsp;·&nbsp; Haven Carty &nbsp;·&nbsp; All rights reserved</div>
+</footer>
+
+<script>
+/* ─── POST DATA ─────────────────────────────────────────── */
+const posts = {
+
+  'wealth-creation': {
+    tag: 'Finance', date: 'Ongoing',
+    title: 'Deconstructing my idea of Wealth Creation',
+    body: `
+      <h2>Fundamentals for a Wealth Creation Mindset</h2>
+      <p>Starting the foundation means being honest about what wealth actually is before chasing it. Most people conflate wealth with income, when the two are fundamentally different instruments. Income is a flow. Wealth is a stock — the accumulation of assets that generate value independently of your labour.</p>
+
+      <h2>Building Types of Wealth</h2>
+      <h3>Entrepreneurial — creative as a child of God</h3>
+      <p>There is something deeply human about building. The instinct to create, to solve, to bring something new into existence — I believe that's not accidental. Wealth creation at its most meaningful comes from producing something of genuine value for others.</p>
+
+      <h3>Wealth Extraction from the Market</h3>
+      <p>Trade, arbitrage, and financial instruments are tools — not character. Dollar-cost averaging, pension contributions, and disciplined accumulation compound quietly while you focus on building.</p>
+
+      <blockquote>Profit can be a liability. The reputation of your company and maintaining that is pivotal.</blockquote>
+
+      <h2>What It Costs</h2>
+      <p>Not going into deficit for too long. Understanding your burn-down rate. Invoicing £150 for a trial week — knowing what your time is worth before a client does.</p>
+      <p>The financial model has to be honest from the start. A business that cannot sustain its founders cannot sustain its mission.</p>
+
+      <h2>Establish Values</h2>
+      <p>Wealth without values is extraction without purpose. The marketing strategy, the client pipeline, the partnerships — all of it rests on what you actually stand for. Without that foundation, scale just amplifies the problem.</p>
+    `
+  },
+
+  'ux-2060': {
+    tag: 'UX', date: '18 Mar 2026',
+    title: 'Future Trends for UX/UI Designers: Staying Relevant to 2060',
+    body: `
+      <p>Where do UX/UI designers need to pivot in order to stay relevant in 2060? With the boom of the Internet of Things in 2012, and the hotword <em>metaverse</em> five years ago, buzz words change so frequently. We are now in the bubble of AI — and if the dot-com bubble was anything to learn from, how can young people whose careers are on the path of UX plan with any confidence?</p>
+
+      <p>I started my apprenticeship in 2017, studying software and Digital Design at degree level. Passionate about connected devices — from the age of 12 I could see myself becoming a device maker. These terms didn't exist when I was looking for work at 16.</p>
+
+      <blockquote>I always said I was going to be an inventor. My parents didn't know what that meant. I now think it's closer to being an entrepreneur than a mechanical engineer.</blockquote>
+
+      <h2>Two possible futures for UX</h2>
+      <p>Growing up with Inspector Gadget and Megamind, the way things are turning, I think UX design could go one of two ways.</p>
+      <p>Either UI design will require the same 3D design skills as industrial designers — putting interface designs into VR using game engines, if headsets take off at scale. Or UX will become more of a <strong>cyber-physical discipline</strong>, bridging the gap between tangible and graphical interaction.</p>
+
+      <h2>The move to business analysts for scrum mastery</h2>
+      <p>It is not enough to just be aware of UX. The progressing career in software development is now looking for MBA project managers to run agile. Many founders come from finance — they bootstrapped with enormous discipline and carry an ego and status that comes from banking, VC, or M&amp;A.</p>
+      <p>Gaining respect with a portfolio built from your bedroom is extremely hard. But not impossible — if you can show that you understand the whole system, not just the screen.</p>
+    `
+  },
+
+  'agile-ux': {
+    tag: 'Agile', date: '27 Oct 2024',
+    title: 'Building Integrated AgilePM — User eXperiences',
+    body: `
+      <p>Agile project management and UX design have long been treated as adjacent disciplines that occasionally collaborate. The more interesting question is what happens when you integrate them from the ground up — not as a methodology, but as a shared culture.</p>
+
+      <h2>The Marketing Strategy</h2>
+      <p>Clients and partners on one side. Integrate AgilePM on the other. The model only works when both sides can see the same horizon.</p>
+      <ul>
+        <li>Your solution</li>
+        <li>The problem you're fixing for the customer</li>
+        <li>Your alternatives</li>
+        <li>Details on your target audience in genuine depth</li>
+      </ul>
+
+      <h2>Iglio — What the model looks like</h2>
+      <p>The platform sits between the client relationship and the delivery team, making the methodology visible without making it bureaucratic. The goal is agility in practice, not agility on paper.</p>
+
+      <blockquote>Real agility is removing the unnecessary bureaucracy so talented people can actually get things done.</blockquote>
+    `
+  },
+
+  'accessibility': {
+    tag: 'Accessibility', date: '03 Mar 2025',
+    title: 'eBay creates an accessibility tool for designers and engineers',
+    body: `
+      <p>eBay's release of an accessibility tool aimed at both designers and engineers is a notable shift — moving accessibility from a compliance checklist into the design and development workflow itself.</p>
+
+      <h2>Why it matters</h2>
+      <p>Most accessibility tooling lives in one camp or the other. Either it's a design plugin that flags contrast ratios, or it's a code linter that catches missing ARIA labels. Tools that bridge both disciplines are rare, and their rarity tells you something about how the industry has historically siloed these concerns.</p>
+
+      <p>When designers and engineers share the same vocabulary for accessibility — the same tool, the same output, the same language — you get fewer translation errors and fewer "that's a dev problem" moments.</p>
+
+      <h2>The broader implication</h2>
+      <p>For anyone building digital products across physical and digital touchpoints — which is increasingly all of us — accessibility cannot be a late-stage audit. It has to be a design material, as early and as fundamental as colour or type.</p>
+    `
+  },
+
+  'marshall': {
+    tag: 'Career', date: '26 Jul 2024',
+    title: 'My experience working at Marshall Amplification PLC',
+    body: `
+      <p>Marshall Amplification was my first professional encounter with design at the intersection of heritage and technology. The company is, in many ways, a monument — the logo alone carries half a century of cultural weight.</p>
+
+      <h2>What I actually did</h2>
+      <p>Generating technical drawings and editing CAD files using Autodesk. The work was precise, demanding, and taught me early that attention to tolerance is what separates a prototype from a product.</p>
+
+      <blockquote>Working inside a company whose product is iconic taught me something about the weight of making things that last.</blockquote>
+
+      <h2>What I took away</h2>
+      <p>Industrial design internships are often positioned as glorified filing. The ones worth doing are the ones where you're in the room when decisions are made. This was one of the latter — and it shaped how I think about the relationship between brand, engineering, and the user who ultimately holds the thing in their hands.</p>
+    `
+  },
+
+  'safe': {
+    tag: 'Agile', date: '24 Mar 2025',
+    title: 'SAFe Scalable Agile Framework Updates',
+    body: `
+      <p>SAFe continues to evolve in ways that reflect the tension at the heart of scaling agile: the more structure you add to make it enterprise-ready, the more you risk losing the adaptability that made agile valuable in the first place.</p>
+
+      <h2>What's changed</h2>
+      <p>Recent updates have leaned into AI integration at the portfolio level, and there's a growing acknowledgement that the framework has to accommodate asynchronous and distributed teams as a default — not an edge case.</p>
+
+      <h2>The real question</h2>
+      <p>For practitioners, the more useful exercise is less about keeping up with framework updates and more about developing the judgment to know which parts of the framework serve your context and which parts you can leave on the shelf.</p>
+
+      <blockquote>A framework is a starting point. The discipline is in knowing when to follow it and when to set it aside.</blockquote>
+    `
+  },
+
+  'lessons-industry': {
+    tag: 'Career', date: '2017',
+    title: 'Lessons from Industry',
+    body: `
+      <p>In the world of UX, focusing on IoT. My apprenticeship at a small agency in Bamber Bridge, Preston, as a UX apprentice. Learning responsive design for websites and studying Software Engineering with Arch Apprenticeships.</p>
+
+      <p>Within a few months I had learnt my job role. I found that I would get better further education from an academic university — and that it also made more sense financially.</p>
+
+      <blockquote>I could be paid £3.50 per hour as an apprentice. Within months, my income doubled to £5.90. The ceiling was obvious.</blockquote>
+
+      <h2>What the apprenticeship taught me that university couldn't</h2>
+      <p>Pace. The real world moves at a rhythm that is fundamentally different from an academic environment. Clients don't wait for you to feel ready. Deliverables have dates. Problems don't come pre-framed.</p>
+
+      <p>But the inverse is also true. The theoretical grounding — the understanding of <em>why</em> something works, not just <em>how</em> to do it — is what separates someone who can execute a brief from someone who can question it.</p>
+
+      <h2>Invoicing £150 for a trial week</h2>
+      <p>Knowing what your time is worth before anyone else does. The figure doesn't matter as much as the act: naming a number, sending a document, treating yourself as a professional before anyone has given you permission to.</p>
+    `
+  },
+
+  'dont-build-alone': {
+    tag: 'Leadership', date: 'Reflections',
+    title: 'Don't Build Alone',
+    body: `
+      <blockquote>Even the most visionary leaders need counsel. Seeking advice isn't weakness — it's wisdom.</blockquote>
+
+      <p>The mythology of the lone founder is seductive and dangerous in equal measure. It's seductive because it's simpler — one vision, one decision-maker, one ego. It's dangerous because companies built on one person's unexamined perspective accumulate blind spots at the rate they accumulate revenue.</p>
+
+      <h2>Counsel as a discipline</h2>
+      <p>Seeking advice is not a sign that you don't know what you're doing. It's a sign that you know how much you don't know. The best founders I've observed are distinguished not by the quality of their original ideas, but by their willingness to have those ideas stress-tested, challenged, and improved by people who see things they can't.</p>
+
+      <h2>Who you build with</h2>
+      <p>The people around you at the beginning shape everything that follows. Not because they make decisions for you, but because they expand the range of options you can see. Build a room where the people inside it will tell you when you're wrong — especially when you're sure you're right.</p>
+    `
+  },
+
+  'leadership-management': {
+    tag: 'Leadership', date: 'Reflections',
+    title: 'Leadership vs. Management',
+    body: `
+      <p>Hey, to the saints who are called to leadership.</p>
+
+      <h2>Framing an assignment is a skill</h2>
+      <p>The way you ask someone to do something shapes whether they do it willingly, reluctantly, or not at all. Emotional intelligence in direction — sandwiching feedback, giving the <em>why</em>, creating a sense of importance around the task — is not soft skill decoration. It is the core of effective leadership.</p>
+
+      <blockquote>Giving someone a sense of importance — "be the first to," showing that their peers are engaged — makes an instruction easier to receive.</blockquote>
+
+      <h2>As a facilitator</h2>
+      <p>Tactics like creating scarcity in sales carry over into internal communication. Urgency, relevance, the sense that this moment matters — these are not manipulation tools when used honestly. They are the language of motivation.</p>
+
+      <h2>The distinction that matters</h2>
+      <p>Management is stewardship of existing systems. Leadership is the act of pointing somewhere new and persuading people that the journey is worth it. Both require different muscles. The mistake is assuming that being good at one makes you good at the other.</p>
+    `
+  },
+
+  'routes-to-finance': {
+    tag: 'Finance', date: 'Oct 2024',
+    title: 'Routes to Finance',
+    body: `
+      <p>Since being laid off on the 5th October, I have been looking for alternative sources of finance.</p>
+
+      <h2>Starting with Friends &amp; Family</h2>
+      <p>I have been so blessed to have parents and grandparents who can support. That support isn't taken lightly — it comes with a responsibility to use it well and to not treat it as a runway for indecision.</p>
+
+      <h2>Co-founders and the 25k route</h2>
+      <p>There is £25,000 available to each co-founder in the UK via personal loans from a broker. The model only works when co-founders genuinely share vision and are willing to take on shared financial liability — not when one person convinces another to carry risk they haven't thought through.</p>
+
+      <p>I'm looking for a recruiting and management Vice President as a co-founder. Someone who shares the vision and is willing to step into the discomfort of building from scratch. I also need VPs of UI and Industrial Design. My focus is running the business, building the team, and getting the clients.</p>
+
+      <blockquote>Agency and investment opportunity only scale when we come together.</blockquote>
+
+      <h2>Talking to specialists</h2>
+      <p>Started talking to developers and engineers. The right technical co-founders don't just build — they help you see what should be built. That conversation is worth having before the money is in place, not after.</p>
+
+      <h2>Co-operative structure</h2>
+      <p>My thoughts are to structure the business as a co-operative from the start. This gives all partners ownership from the beginning and creates a clean exit mechanism: a £1 buyout offer to employees means the company can transfer without redundancy liability, if those employees choose to take ownership rather than leave.</p>
+    `
+  },
+
+  'social-media': {
+    tag: 'Leadership', date: '2025',
+    title: 'Why is it so hard for large organisations to just… post something?',
+    body: `
+      <p>Take something as simple as marketing an event on social media.</p>
+      <p>The event is happening. The content is ready. The audience is there.</p>
+      <p>And yet, getting one LinkedIn post live can somehow involve:</p>
+
+      <ul class="arrow-list">
+        <li>Marketing</li>
+        <li>Brand</li>
+        <li>Comms</li>
+        <li>Legal</li>
+        <li>Compliance</li>
+        <li>Senior leadership</li>
+        <li>Regional teams</li>
+        <li>"Can we just get one more person to look at this?"</li>
+      </ul>
+
+      <p>By the time everyone has had their say, the event has passed.</p>
+
+      <blockquote>But the bigger problem isn't the approval process. It's what it does to people.</blockquote>
+
+      <p>When employees constantly need permission to act, you gradually remove their agency. People stop thinking <em>how can I make this?</em> and start thinking <em>how can I get someone to approve this?</em></p>
+      <p>Initiative gets replaced by process. Creativity is eliminated.</p>
+
+      <h2>The fix</h2>
+      <p>Give a small team clear ownership of the social channels. Give them the guardrails — brand, tone, compliance, objectives and boundaries. Then give them the authority to actually run with it.</p>
+      <p>The organisation still gets governance. But the people doing the work get agency.</p>
+      <p>And ultimately, that's what agility is about: removing the unnecessary bureaucracy so talented people can actually get things done.</p>
+
+      <p>Sometimes the best way to improve social media isn't another strategy, another approval process, or another meeting. It's simply giving someone the ownership.</p>
+    `
+  },
+
+  'building-team': {
+    tag: 'Leadership', date: 'Oct 2024',
+    title: 'Building the Team',
+    body: `
+      <p>Creating a culture. Build before you scale.</p>
+
+      <h2>Starting from Friends &amp; Family</h2>
+      <p>The first community assigned to you at birth is family. The foundation of a support network often extends a bit beyond them — a church, a local community, people who knew you before you became interesting to investors.</p>
+
+      <blockquote>Leading something that will last is not possible without God. Community a bit beyond family can come in the form of a church. The base of a support network.</blockquote>
+
+      <h2>The right co-founders</h2>
+      <p>Then getting the right people as co-founders. There is £25,000 available to each co-founder in the UK. After doing the foundational work, agency and investment opportunity only scales when the right people come together.</p>
+
+      <p>I heard a story at the weekend about a business that offered a £1 buyout to all the employees. I am still hoping to find an opportunity like this after I have learnt the ropes of running a company.</p>
+
+      <h2>Structure for ownership</h2>
+      <p>My thoughts are still to structure the business as a Co-operative from the start. This gives all partners ownership from the beginning — and creates a clean, fair exit path. Not shoehorning anyone to fit in. Bringing values and aligning the mission of two or more people before scale forces the question.</p>
+    `
+  },
+
+  'mergers': {
+    tag: 'Finance', date: '2025',
+    title: 'Mergers, Acquisitions &amp; Partnerships',
+    body: `
+      <p>Do you need advice on the technology you're acquiring? Help finding greater value — or seeing the greater potential — in things?</p>
+
+      <h2>The neglected majority</h2>
+      <p>So much investment focuses on the growth of public companies. But that neglects the large amount of growth from private equity — seeing the accounts, understanding how much the equity and dividends are worth inside a limited business.</p>
+
+      <blockquote>As a joint venture, we have been acquiring software products and building partnerships. Then selling them for greater value.</blockquote>
+
+      <h2>Technical due diligence</h2>
+      <p>We can help you understand the technical debt you are taking on. Haven Carty excels in cross-discipline communication between finance departments, software development divisions, and electronics engineers — giving agency to software services from cloud architecture down to embedded systems.</p>
+
+      <h2>What to look for</h2>
+      <ul>
+        <li>Acquiring a start-up when it's early enough and undervalued enough</li>
+        <li>Seeing the worth in young talent and investing in pre-seed start-ups</li>
+        <li>Stripping an organisation to its essential business functions</li>
+        <li>Checking the financials — current and projected turnover</li>
+        <li>Bringing values and aligning the mission of two or more organisations</li>
+      </ul>
+
+      <h2>What not to do</h2>
+      <p>Not shoehorning yourself to fit in. Profit can be a liability. Building and putting the right teams together is what creates lasting value. Branding and having a good name — the reputation of your company and maintaining it — is pivotal.</p>
+    `
+  }
+
+};
+
+/* ─── ROUTING ──────────────────────────────────────────── */
+function showIndex() {
+  document.getElementById('view-index').classList.add('active');
+  document.getElementById('view-article').classList.remove('active');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+  history.pushState({}, '', '#');
+}
+
+function showPost(slug) {
+  const post = posts[slug];
+  if (!post) return;
+
+  document.getElementById('art-tag').textContent = post.tag;
+  document.getElementById('art-date').textContent = post.date;
+  document.getElementById('art-title').textContent = post.title;
+  document.getElementById('art-body').innerHTML = post.body;
+
+  document.getElementById('view-index').classList.remove('active');
+  document.getElementById('view-article').classList.add('active');
+  window.scrollTo({ top: 0, behavior: 'instant' });
+  history.pushState({ slug }, '', '#' + slug);
+}
+
+// handle browser back
+window.addEventListener('popstate', (e) => {
+  if (e.state && e.state.slug) {
+    showPost(e.state.slug);
+  } else {
+    showIndex();
+  }
+});
+
+// prevent link default on all internal anchors
+document.addEventListener('click', (e) => {
+  if (e.target.tagName === 'A' && e.target.getAttribute('href') === '#') {
+    e.preventDefault();
+  }
+});
+</script>
+</body>
+</html>
