@@ -54,7 +54,7 @@ export function Writing() {
           {articles.map((article) => (
             <li key={article.title}>
               <a
-                href={article.href}
+                href={article.href === "#" ? "/blog" : article.href}
                 className="group flex flex-col gap-2 border-b border-border py-6 transition-colors hover:bg-secondary/60 md:flex-row md:items-center md:gap-8 md:px-2"
               >
                 <span className="font-mono text-xs tracking-wider text-muted-foreground md:w-28 md:shrink-0">
