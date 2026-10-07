@@ -9,7 +9,7 @@ export function Hero() {
             <span className="relative inline-flex h-2 w-2 rounded-full bg-accent" />
           </span>
           <p className="font-mono text-xs uppercase tracking-[0.25em] text-muted-foreground">
-            Business constancy · Strategy · Responsible growth
+            Business constancy · Integrated membership · Sustainable performance
           </p>
         </div>
 
@@ -21,9 +21,10 @@ export function Hero() {
         </h1>
 
         <p className="mt-8 max-w-xl text-pretty text-lg leading-relaxed text-muted-foreground">
-          A business consultancy campaign for leaders who want to make sound decisions,
-          grow with intention and build organisations people can trust. Riaz Virani
-          brings strategic perspective and steady execution to the work that matters.
+          A campaign for leaders who want to make sound decisions, grow with intention and
+          build organisations people can trust. Riaz Virani brings strategic perspective
+          across workspace design, integrated membership, wellbeing and sustainable
+          performance — without the corporate theatre.
         </p>
 
         <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center">
