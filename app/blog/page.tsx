@@ -2,8 +2,8 @@ import type { Metadata } from "next"
 import { BlogPage } from "@/components/blog-page"
 
 export const metadata: Metadata = {
-  title: "Writing — Servant Leaders UK",
-  description: "Essays on UX, connected products, agile delivery, leadership and building with purpose.",
+  title: "Journal — Riaz Virani",
+  description: "A journal for business leaders building with constancy, clarity and purpose.",
 }
 
 export default function BlogRoute() {

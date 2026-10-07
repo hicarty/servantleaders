@@ -16,9 +16,9 @@ const instrumentSerif = Instrument_Serif({
 })
 
 export const metadata: Metadata = {
-  title: 'Servant Leaders UK — Serve Others as Greater than Oneself',
+  title: 'Riaz Virani — Business Consultancy with Constancy',
   description:
-    'Software consultancy for connected devices. Human-centred design, IoT user experience, web development and firmware — led by Haven Carty, Director of Cluster Technology Limited.',
+    'Riaz Virani is a business consultancy campaign built around clear thinking, responsible growth and the constancy to turn good intentions into durable results.',
   generator: 'v0.app',
   icons: {
     icon: [

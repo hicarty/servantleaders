@@ -38,15 +38,15 @@ export function Writing() {
         <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
           <div className="max-w-xl">
             <p className="font-mono text-xs uppercase tracking-[0.25em] text-accent">
-              Writing & research
+              Journal & perspective
             </p>
             <h2 className="mt-4 text-balance font-serif text-3xl leading-tight tracking-tight text-foreground md:text-5xl">
-              In-depth on UX for IoT.
+              Ideas for business constancy.
             </h2>
           </div>
           <p className="max-w-sm text-pretty leading-relaxed text-muted-foreground">
-            Articles and blog posts on connected products, accessibility and
-            agile delivery — published across WordPress and Medium.
+            Notes on leadership, strategy, culture and the daily decisions that make
+            a business durable — adapted for the Riaz Virani campaign.
           </p>
         </div>
 

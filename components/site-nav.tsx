@@ -18,7 +18,7 @@ export function SiteNav() {
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
         <a href="#top" className="flex items-baseline gap-2">
           <span className="font-serif text-xl leading-none tracking-tight text-foreground">
-            Servant Leaders
+            Riaz Virani
           </span>
           <span className="font-mono text-[10px] uppercase tracking-[0.25em] text-accent">
             UK

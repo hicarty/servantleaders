@@ -5,7 +5,7 @@ export function SiteFooter() {
         <div className="flex flex-col justify-between gap-6 pb-12 md:flex-row md:items-end">
           <div className="max-w-sm">
             <p className="font-serif text-xl tracking-tight text-foreground">
-              Servant Leaders UK
+              Riaz Virani
             </p>
             <p className="mt-3 text-pretty leading-relaxed text-muted-foreground">
               Serve others as greater than oneself. Software consultancy for

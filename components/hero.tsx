@@ -9,21 +9,21 @@ export function Hero() {
             <span className="relative inline-flex h-2 w-2 rounded-full bg-accent" />
           </span>
           <p className="font-mono text-xs uppercase tracking-[0.25em] text-muted-foreground">
-            Software consultancy · Connected devices · IoT UX
+            Business constancy · Strategy · Responsible growth
           </p>
         </div>
 
         {/* statement */}
         <h1 className="mt-8 max-w-4xl text-balance font-serif text-4xl leading-[1.05] tracking-tight text-foreground sm:text-6xl md:text-7xl">
-          Serve others as greater
-          <br className="hidden sm:block" /> than{" "}
-          <span className="italic text-accent">oneself.</span>
+          Build with clarity.
+          <br className="hidden sm:block" /> Lead with{" "}
+          <span className="italic text-accent">{" constancy."}</span>
         </h1>
 
         <p className="mt-8 max-w-xl text-pretty text-lg leading-relaxed text-muted-foreground">
-          Thought leadership on connected devices and human-centred design. We
-          help organisations ship hardware and software people actually want to
-          use — from firmware to the final pixel.
+          A business consultancy campaign for leaders who want to make sound decisions,
+          grow with intention and build organisations people can trust. Riaz Virani
+          brings strategic perspective and steady execution to the work that matters.
         </p>
 
         <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center">

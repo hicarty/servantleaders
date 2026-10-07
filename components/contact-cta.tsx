@@ -20,10 +20,10 @@ export function ContactCta() {
 
             <div className="mt-10 space-y-4">
               <a
-                href="mailto:hello@servantleaders.uk"
+                href="mailto:hello@riazvirani.com"
                 className="block font-serif text-2xl tracking-tight text-foreground underline decoration-accent decoration-1 underline-offset-4 transition-opacity hover:opacity-70"
               >
-                hello@servantleaders.uk
+                hello@riazvirani.com
               </a>
               <div className="flex flex-wrap gap-x-6 gap-y-2">
                 {["LinkedIn", "Behance", "Medium", "GitHub"].map((s) => (
