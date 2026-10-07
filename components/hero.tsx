@@ -14,7 +14,7 @@ export function Hero() {
         </div>
 
         {/* statement */}
-        <h1 className="mt-8 max-w-4xl text-balance font-serif text-4xl leading-[1.05] tracking-tight text-foreground sm:text-6xl md:text-7xl">
+        <h1 className="mt-8 max-w-4xl text-balance font-[family-name:var(--font-junge)] text-4xl leading-[1.05] tracking-tight text-foreground sm:text-6xl md:text-7xl">
           Build with clarity.
           <br className="hidden sm:block" /> Lead with{" "}
           <span className="italic text-accent">{" constancy."}</span>
