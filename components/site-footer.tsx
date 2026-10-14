@@ -7,15 +7,9 @@ export function SiteFooter() {
             <p className="font-serif text-xl tracking-tight text-foreground">
               Riaz Virani
             </p>
-            <p className="mt-3 text-pretty leading-relaxed text-muted-foreground">
-              Serve others as greater than oneself. Software consultancy for
-              connected devices, by Cluster Technology Limited.
-            </p>
           </div>
           <p className="font-mono text-xs leading-relaxed text-muted-foreground">
-            © {new Date().getFullYear()} Cluster Technology Limited
-            <br />
-            Leicester, United Kingdom
+            © {new Date().getFullYear()} Riaz Virani
           </p>
         </div>
       </div>

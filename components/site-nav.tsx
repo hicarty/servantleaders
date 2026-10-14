@@ -20,9 +20,6 @@ export function SiteNav() {
           <span className="font-serif text-xl leading-none tracking-tight text-foreground">
             Riaz Virani
           </span>
-          <span className="font-mono text-[10px] uppercase tracking-[0.25em] text-accent">
-            UK
-          </span>
         </a>
 
         <nav className="hidden items-center gap-8 md:flex" aria-label="Primary">
