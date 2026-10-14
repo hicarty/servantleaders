@@ -1,4 +1,5 @@
 export const blogPosts = [
+  { slug: "complete-wellness-workspace", date: "01 Jul 2025", title: "Creating Your Complete Wellness Workspace (Without the Corporate Nonsense)", tag: "Integrated Membership" },
   { slug: "wealth-creation", date: "Ongoing", title: "Deconstructing my idea of Wealth Creation", tag: "Finance" },
   { slug: "ux-2060", date: "18 Mar 2026", title: "Future Trends for UX/UI Designers: Staying Relevant to 2060", tag: "UX" },
   { slug: "agile-ux", date: "27 Oct 2024", title: "Building Integrated AgilePM — User eXperiences", tag: "Agile" },

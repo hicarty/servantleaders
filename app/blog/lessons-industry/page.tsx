@@ -4,7 +4,7 @@ import { getBlogPost } from "@/components/blog-posts"
 
 const post = getBlogPost("lessons-industry")
 
-export const metadata: Metadata = { title: `${post.title} — Servant Leaders UK` }
+export const metadata: Metadata = { title: `${post.title} — Riaz Virani` }
 
 export default function LessonsIndustryPage() {
   return (

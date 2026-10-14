@@ -13,7 +13,7 @@ export function BlogNav() {
     <nav className="sticky top-0 z-50 border-b border-border bg-background/95 px-6">
       <div className="mx-auto flex h-14 max-w-6xl items-center justify-between">
         <Link href="/blog" className="font-serif text-xl text-[#c4622d]">
-          ServantLeadersUK
+          Riaz Virani
         </Link>
         <div className="flex gap-7 font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground">
           <Link href="/" className="hover:text-foreground">Home</Link>
