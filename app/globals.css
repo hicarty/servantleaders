@@ -141,6 +141,7 @@
 
 .prose-blog p { margin-bottom: 1.35rem; }
 .prose-blog ul { margin: 0 0 1.35rem; padding-left: 1.4rem; }
+.prose-blog ol { margin: 0 0 1.35rem; padding-left: 1.4rem; list-style: decimal; }
 .prose-blog li { margin-bottom: 0.4rem; }
 .prose-blog blockquote {
   margin: 2.5rem 0;
