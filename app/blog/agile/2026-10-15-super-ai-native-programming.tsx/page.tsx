@@ -1,4 +1,5 @@
 import type { Metadata } from "next"
+import Image from "next/image"
 import { BlogArticle } from "@/components/blog-article"
 import { getBlogPost } from "@/components/blog-posts"
 
