@@ -11,6 +11,7 @@ import MarshallPage from "../legacy/2024-07-26-marshall.tsx/page"
 import MergersPage from "../finance/2025-mergers.tsx/page"
 import RoutesToFinancePage from "../finance/2024-10-routes-to-finance.tsx/page"
 import SafePage from "../agile/2025-03-24-safe.tsx/page"
+import SuperAiNativeProgrammingPage from "../agile/2026-10-15-super-ai-native-programming.tsx/page"
 import SocialMediaPage from "../leadership/2025-social-media.tsx/page"
 import Ux2060Page from "../ux/2026-03-18-ux-2060.tsx/page"
 import WealthCreationPage from "../legacy/ongoing-wealth-creation.tsx/page"
@@ -27,6 +28,7 @@ const postPages: Record<BlogPostSlug, ComponentType> = {
   mergers: MergersPage,
   "routes-to-finance": RoutesToFinancePage,
   safe: SafePage,
+  "super-ai-native-programming": SuperAiNativeProgrammingPage,
   "social-media": SocialMediaPage,
   "ux-2060": Ux2060Page,
   "wealth-creation": WealthCreationPage,

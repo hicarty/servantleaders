@@ -1,4 +1,5 @@
 export const blogPosts = [
+  { slug: "super-ai-native-programming", route: "2026-10-15-super-ai-native-programming.tsx", category: "agile", date: "15 Oct 2026", title: "Super AI-Native programming", tag: "Agile" },
   { slug: "wealth-creation", route: "ongoing-wealth-creation.tsx", category: "legacy", date: "Ongoing", title: "Deconstructing my idea of Wealth Creation", tag: "Finance" },
   { slug: "ux-2060", route: "2026-03-18-ux-2060.tsx", category: "ux", date: "18 Mar 2026", title: "Future Trends for UX/UI Designers: Staying Relevant to 2060", tag: "UX" },
   { slug: "agile-ux", route: "2024-10-27-agile-ux.tsx", category: "ux", date: "27 Oct 2024", title: "Building Integrated AgilePM — User eXperiences", tag: "Agile" },

@@ -3,7 +3,7 @@
 import Link from "next/link"
 import type { ReactNode } from "react"
 import { useState } from "react"
-import { blogPosts } from "@/components/blog-posts"
+import { BlogPostList } from "@/components/blog-post-list"
 
 type BlogArticleProps = {
   date: string
@@ -36,19 +36,7 @@ export function BlogNav() {
         </button>
       </div>
       <div id="blog-post-menu" hidden={!open} className="border-t border-border">
-        <ul className="mx-auto grid max-w-6xl gap-x-8 px-0 py-4 sm:grid-cols-2 lg:grid-cols-3">
-          {blogPosts.map((post) => (
-            <li key={post.slug}>
-              <Link
-                href={`/blog/${post.slug}`}
-                onClick={() => setOpen(false)}
-                className="block py-2 font-serif text-base hover:text-[#4b7771]"
-              >
-                {post.title}
-              </Link>
-            </li>
-          ))}
-        </ul>
+        <BlogPostList onSelect={() => setOpen(false)} />
       </div>
     </nav>
   )
