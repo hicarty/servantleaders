@@ -1,5 +1,9 @@
+"use client"
+
 import Link from "next/link"
 import type { ReactNode } from "react"
+import { useState } from "react"
+import { blogPosts } from "@/components/blog-posts"
 
 type BlogArticleProps = {
   date: string
@@ -9,17 +13,42 @@ type BlogArticleProps = {
 }
 
 export function BlogNav() {
+  const [open, setOpen] = useState(false)
+
   return (
-    <nav className="sticky top-0 z-50 border-b border-border bg-background/95 px-6">
+    <nav aria-label="Blog navigation" className="sticky top-0 z-50 border-b border-border bg-background/95 px-6">
       <div className="mx-auto flex h-14 max-w-6xl items-center justify-between">
-        <Link href="/blog" className="font-serif text-xl text-[#c4622d]">
+        <Link href="/" className="font-serif text-xl text-[#c4622d]">
           ServantLeadersUK
         </Link>
-        <div className="flex gap-7 font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground">
-          <Link href="/" className="hover:text-foreground">Home</Link>
-          <Link href="/blog" className="text-foreground">Writing</Link>
-          <Link href="/#contact" className="hover:text-foreground">About</Link>
-        </div>
+        <button
+          type="button"
+          onClick={() => setOpen((value) => !value)}
+          className="flex items-center gap-3 font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground hover:text-foreground"
+          aria-expanded={open}
+          aria-controls="blog-post-menu"
+        >
+          <span>All posts</span>
+          <span aria-hidden="true" className="flex w-5 flex-col gap-1.5">
+            <span className="h-px w-full bg-current" />
+            <span className="h-px w-full bg-current" />
+          </span>
+        </button>
+      </div>
+      <div id="blog-post-menu" hidden={!open} className="border-t border-border">
+        <ul className="mx-auto grid max-w-6xl gap-x-8 px-0 py-4 sm:grid-cols-2 lg:grid-cols-3">
+          {blogPosts.map((post) => (
+            <li key={post.slug}>
+              <Link
+                href={`/blog/${post.slug}`}
+                onClick={() => setOpen(false)}
+                className="block py-2 font-serif text-base hover:text-[#4b7771]"
+              >
+                {post.title}
+              </Link>
+            </li>
+          ))}
+        </ul>
       </div>
     </nav>
   )

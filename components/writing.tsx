@@ -1,33 +1,35 @@
+import Link from "next/link"
+
 const articles = [
   {
     date: "18 Mar 2026",
     title: "Future Trends for UX/UI Designers: Staying Relevant to 2060",
     tag: "UX",
-    href: "#",
+    href: "/blog/ux-2060",
   },
   {
     date: "27 Oct 2024",
     title: "Building Integrated AgilePM — User eXperiences",
     tag: "Agile",
-    href: "#",
+    href: "/blog/agile-ux",
   },
   {
     date: "03 Mar 2025",
     title: "eBay creates an accessibility tool for designers and engineers",
     tag: "Accessibility",
-    href: "#",
+    href: "/blog/accessibility",
   },
   {
     date: "26 Jul 2024",
     title: "My experience working at Marshall Amplification PLC",
     tag: "Career",
-    href: "#",
+    href: "/blog/marshall",
   },
   {
     date: "24 Mar 2025",
     title: "SAFe Scalable Agile Framework Updates",
     tag: "Agile",
-    href: "#",
+    href: "/blog/safe",
   },
 ]
 
@@ -53,8 +55,8 @@ export function Writing() {
         <ul className="mt-12 border-t border-border">
           {articles.map((article) => (
             <li key={article.title}>
-              <a
-                href={article.href === "#" ? "/blog" : article.href}
+              <Link
+                href={article.href}
                 className="group flex flex-col gap-2 border-b border-border py-6 transition-colors hover:bg-secondary/60 md:flex-row md:items-center md:gap-8 md:px-2"
               >
                 <span className="font-mono text-xs tracking-wider text-muted-foreground md:w-28 md:shrink-0">
@@ -74,7 +76,7 @@ export function Writing() {
                     →
                   </span>
                 </span>
-              </a>
+              </Link>
             </li>
           ))}
         </ul>
