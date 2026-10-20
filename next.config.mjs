@@ -6,6 +6,7 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
+  transpilePackages: ['@servantleaders/ui'],
 }
 
 export default nextConfig
