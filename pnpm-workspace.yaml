@@ -1,7 +1,3 @@
-packages:
-  - "apps/*"
-  - "packages/*"
-
 allowBuilds:
-  msw: true
-  sharp: true
+  msw: set this to true or false
+  sharp: set this to true or false
