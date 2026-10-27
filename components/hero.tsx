@@ -52,7 +52,7 @@ export function Hero() {
         className="pointer-events-none select-none overflow-hidden"
       >
         <p className="-mb-2 translate-y-2 whitespace-nowrap text-[20vw] font-semibold leading-none tracking-tighter text-foreground/[0.04] md:text-[16vw]">
-          SERVANTLEADERS
+          HAVEN CARTY
         </p>
       </div>
     </section>

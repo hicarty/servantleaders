@@ -15,9 +15,9 @@ const jetBrainsMono = JetBrains_Mono({
 })
 
 export const metadata: Metadata = {
-  title: 'Servant Leaders UK — Serve Others as Greater than Oneself',
+  title: 'Haven Carty — Serve Others as Greater than Oneself',
   description:
-    'Software consultancy for connected devices. Human-centred design, IoT user experience, web development and firmware — led by Haven Carty, Director of Cluster Technology Limited.',
+    'Software consultancy for connected devices. Human-centred design, IoT user experience, web development and firmware — led by Haven Carty, Director of Cluster Technology Limited. Open roles at Cluster Technology.',
   generator: 'v0.app',
   icons: {
     icon: [

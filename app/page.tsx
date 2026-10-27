@@ -5,12 +5,12 @@ import { Writing } from "@/components/writing"
 import { TrackRecord } from "@/components/track-record"
 import { ContactCta } from "@/components/contact-cta"
 import { SiteFooter } from "@/components/site-footer"
-import { Navbar } from "@servantleaders/ui/navbar"
+import { SiteNav } from "@/components/site-nav"
 
 export default function Page() {
   return (
     <main className="min-h-screen bg-background text-foreground">
-      <Navbar />
+      <SiteNav />
       <Hero />
       <Values />
       <Services />
