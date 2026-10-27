@@ -1,0 +1,193 @@
+import type { SiteContent } from "@servantleaders/ui"
+
+export const site: SiteContent = {
+  seo: {
+    title: "Servant Leaders UK — Serve Others as Greater than Oneself",
+    description:
+      "Software consultancy for connected devices. Human-centred design, IoT user experience, web development and firmware — led by Haven Carty, Director of Cluster Technology Limited.",
+  },
+  theme: {
+    displayHeadingClass: "font-serif",
+  },
+  nav: {
+    brand: "Servant Leaders",
+    brandSuffix: "UK",
+    links: [
+      { label: "Approach", href: "#approach" },
+      { label: "Services", href: "#services" },
+      { label: "Writing", href: "/blog" },
+      { label: "Track Record", href: "#track-record" },
+      { label: "Contact", href: "#contact" },
+    ],
+    cta: { label: "Start a project", href: "#contact" },
+  },
+  hero: {
+    eyebrow: "Software consultancy · Connected devices · IoT UX",
+    title: (
+      <>
+        Serve others as greater
+        <br className="hidden sm:block" /> than{" "}
+        <span className="italic text-accent">oneself.</span>
+      </>
+    ),
+    blurb:
+      "Thought leadership on connected devices and human-centred design. We help organisations ship hardware and software people actually want to use — from firmware to the final pixel.",
+    primaryCta: { label: "Serve your roadmap", href: "#contact" },
+    secondaryCta: { label: "How we work", href: "#approach" },
+    note: "// You're only as good as the team you serve.",
+    wordmark: "SERVANTLEADERS",
+  },
+  values: {
+    eyebrow: "The operating values",
+    heading: "Three principles, applied without ceremony.",
+    aside:
+      "Aspiring Kanban cleaner, scrum and sprint janitor. Someone has to keep the board tidy and the column WIP honest — happily, that someone is me.",
+    items: [
+      {
+        no: "01",
+        title: "Agility",
+        body: "Small batches, tight loops, working software over working theatre. We move at the speed of learning, not the speed of meetings.",
+      },
+      {
+        no: "02",
+        title: "Collaboration",
+        body: "Servant leadership in practice: clear the blockers, protect the team, share the credit. The best decisions are made closest to the work.",
+      },
+      {
+        no: "03",
+        title: "Innovation",
+        body: "Connected products live where hardware, firmware and interface meet. We design across that seam so the whole experience feels inevitable.",
+      },
+    ],
+  },
+  services: {
+    eyebrow: "What we serve",
+    heading: "Software consultancy, from firmware to the final pixel.",
+    items: [
+      {
+        title: "IoT user experience",
+        summary:
+          "In-depth UX for connected devices — the bit between a sensor reading and a human decision. Information architecture, interaction design and usability for products that span a screen and the physical world.",
+        points: ["Connected-device journeys", "Onboarding & first-run", "Accessibility-led design"],
+      },
+      {
+        title: "Web development",
+        summary:
+          "Production web applications, dashboards and companion apps. Modern, fast and maintainable front-ends wired to the back-ends and APIs your devices depend on.",
+        points: ["React & Next.js apps", "Device dashboards & telemetry", "Design systems"],
+      },
+      {
+        title: "Firmware & devices",
+        summary:
+          "Embedded software and prototype hardware from someone who has actually shipped devices. Bridging the gap between the schematic and the user — without the jargon getting in the way (mostly).",
+        points: ["Embedded firmware", "Prototype engineering", "Additive manufacturing"],
+      },
+      {
+        title: "Human-centred design",
+        summary:
+          "Research, service design and the unglamorous facilitation that keeps a cross-functional team pointed at the user. Fewer opinions, more evidence.",
+        points: ["Discovery & research", "Agile delivery coaching", "Stakeholder workshops"],
+      },
+    ],
+  },
+  writing: {
+    eyebrow: "Writing & research",
+    heading: "In-depth on UX for IoT.",
+    aside:
+      "Articles and blog posts on connected products, accessibility and agile delivery — published across WordPress and Medium.",
+    articles: [
+      { date: "18 Mar 2026", title: "Future Trends for UX/UI Designers: Staying Relevant to 2060", tag: "UX", href: "/blog/ux-2060" },
+      { date: "27 Oct 2024", title: "Building Integrated AgilePM — User eXperiences", tag: "Agile", href: "/blog/agile-ux" },
+      { date: "03 Mar 2025", title: "eBay creates an accessibility tool for designers and engineers", tag: "Accessibility", href: "/blog/accessibility" },
+      { date: "26 Jul 2024", title: "My experience working at Marshall Amplification PLC", tag: "Career", href: "/blog/marshall" },
+      { date: "24 Mar 2025", title: "SAFe Scalable Agile Framework Updates", tag: "Agile", href: "/blog/safe" },
+    ],
+  },
+  trackRecord: {
+    eyebrow: "The person serving",
+    name: "Haven Carty",
+    blurb:
+      "Connecting the unconnected. A device maker and prototype engineer turned consultant, working where additive manufacturing, firmware and human-centred design overlap. Professional tone, genuine warmth, and a healthy tolerance for jargon jokes.",
+    facts: [
+      { label: "Director", value: "Cluster Technology Limited" },
+      { label: "Discipline", value: "Industrial design & software" },
+      { label: "Based", value: "Leicester, United Kingdom" },
+      { label: "Sectors", value: "Energy → Music Technology" },
+    ],
+    timeline: [
+      {
+        role: "Device maker & prototype engineer",
+        detail:
+          "Additive manufacturing, prototype hardware and the websites that surround them. Turning sketches into things you can hold.",
+      },
+      {
+        role: "Industrial designer",
+        detail:
+          "Human-centred design across physical products and the interfaces that drive them, with a focus on connected devices.",
+      },
+      {
+        role: "Director, Cluster Technology Limited",
+        detail:
+          "Leading software consultancy for connected devices — serving teams shipping IoT products from energy to music technology.",
+      },
+    ],
+  },
+  contact: {
+    eyebrow: "Start a conversation",
+    heading: "Bring us the hardest part of your roadmap.",
+    blurb:
+      "For leaders shipping connected products — from energy to music technology. Tell us what you're building and we'll tell you, honestly, how we'd serve the team around it.",
+    email: "hello@servantleaders.uk",
+    socials: ["LinkedIn", "Behance", "Medium", "GitHub"],
+  },
+  footer: {
+    brand: "Servant Leaders UK",
+    blurb:
+      "Serve others as greater than oneself. Software consultancy for connected devices, by Cluster Technology Limited.",
+    copyright: "Cluster Technology Limited",
+    location: "Leicester, United Kingdom",
+    wordmark: "SERVE OTHERS",
+  },
+  blog: {
+    enabled: true,
+    navLabel: "Writing",
+    navHref: "/blog",
+    navBrand: "ServantLeadersUK",
+    footerText: "ServantLeaders · Haven Carty · All rights reserved",
+    index: {
+      eyebrow: "Writing & research",
+      heading: (
+        <>
+          Ideas for building with <em className="text-accent">purpose.</em>
+        </>
+      ),
+      blurb:
+        "Essays on UX, connected products, accessibility, agile delivery, leadership and creating lasting value.",
+      metadataTitle: "Writing — Servant Leaders UK",
+      metadataDescription:
+        "Essays on UX, connected products, agile delivery, leadership and building with purpose.",
+    },
+    posts: [
+      { slug: "super-ai-native-programming", date: "15 Oct 2026", title: "Super AI-Native programming", tag: "Agile" },
+      { slug: "wealth-creation", date: "Ongoing", title: "Deconstructing my idea of Wealth Creation", tag: "Finance" },
+      { slug: "ux-2060", date: "18 Mar 2026", title: "Future Trends for UX/UI Designers: Staying Relevant to 2060", tag: "UX" },
+      { slug: "agile-ux", date: "27 Oct 2024", title: "Building Integrated AgilePM — User eXperiences", tag: "Agile" },
+      { slug: "accessibility", date: "03 Mar 2025", title: "eBay creates an accessibility tool for designers and engineers", tag: "Accessibility" },
+      { slug: "marshall", date: "26 Jul 2024", title: "My experience working at Marshall Amplification PLC", tag: "Career" },
+      { slug: "safe", date: "24 Mar 2025", title: "SAFe Scalable Agile Framework Updates", tag: "Agile" },
+      { slug: "lessons-industry", date: "2017", title: "Lessons from Industry", tag: "Career" },
+      { slug: "dont-build-alone", date: "Reflections", title: "Don't Build Alone", tag: "Leadership" },
+      { slug: "leadership-management", date: "Reflections", title: "Leadership vs. Management", tag: "Leadership" },
+      { slug: "routes-to-finance", date: "Oct 2024", title: "Routes to Finance", tag: "Finance" },
+      { slug: "social-media", date: "2025", title: "Why is it so hard for large organisations to just… post something?", tag: "Leadership" },
+      { slug: "building-team", date: "Oct 2024", title: "Building the Team", tag: "Leadership" },
+      { slug: "mergers", date: "2025", title: "Mergers, Acquisitions & Partnerships", tag: "Finance" },
+    ],
+  },
+}
+
+export const siteName = [site.nav.brand, site.nav.brandSuffix].filter(Boolean).join(" ")
+
+export function getPost(slug: string) {
+  return site.blog.posts.find((post) => post.slug === slug)
+}

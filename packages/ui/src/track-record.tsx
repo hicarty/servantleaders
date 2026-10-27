@@ -1,0 +1,54 @@
+import type { SiteContent } from "./types"
+
+export function TrackRecord({ content }: { content: SiteContent }) {
+  const { trackRecord } = content
+
+  return (
+    <section id="track-record" className="border-b border-border bg-card">
+      <div className="mx-auto max-w-6xl px-6 py-20 md:py-28">
+        <div className="grid gap-12 md:grid-cols-[1fr_1.3fr] md:gap-16">
+          <div>
+            <p className="font-mono text-xs uppercase tracking-[0.25em] text-accent">
+              {trackRecord.eyebrow}
+            </p>
+            <h2 className="mt-4 text-balance font-serif text-3xl leading-tight tracking-tight text-foreground md:text-5xl">
+              {trackRecord.name}
+            </h2>
+            <p className="mt-6 text-pretty leading-relaxed text-muted-foreground">
+              {trackRecord.blurb}
+            </p>
+
+            <dl className="mt-10 grid grid-cols-2 gap-x-6 gap-y-6">
+              {trackRecord.facts.map((fact) => (
+                <div key={fact.label}>
+                  <dt className="font-mono text-[11px] uppercase tracking-widest text-muted-foreground">
+                    {fact.label}
+                  </dt>
+                  <dd className="mt-1 text-pretty leading-snug text-foreground">
+                    {fact.value}
+                  </dd>
+                </div>
+              ))}
+            </dl>
+          </div>
+
+          <div className="md:pt-2">
+            <ol className="relative border-l border-border">
+              {trackRecord.timeline.map((item) => (
+                <li key={item.role} className="relative pb-10 pl-8 last:pb-0">
+                  <span className="absolute -left-[5px] top-1.5 h-2.5 w-2.5 rounded-full bg-accent" />
+                  <h3 className="font-serif text-xl tracking-tight text-foreground">
+                    {item.role}
+                  </h3>
+                  <p className="mt-2 text-pretty leading-relaxed text-muted-foreground">
+                    {item.detail}
+                  </p>
+                </li>
+              ))}
+            </ol>
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}
