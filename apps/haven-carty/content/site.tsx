@@ -6,9 +6,9 @@ const JOBS_DESCRIPTION =
 
 export const site: SiteContent = {
   seo: {
-    title: "Haven Carty — Jobs & Careers at Cluster Technology",
+    title: "Haven Carty — Serve Others as Greater than Oneself",
     description:
-      "Technical roles at Cluster Technology: assembling, testing and quality-assuring engineering samples for connected devices.",
+      "Software consultancy for connected devices. Human-centred design, IoT user experience, web development and firmware — led by Haven Carty, Director of Cluster Technology Limited.",
   },
   theme: {
     displayHeadingClass: "font-serif",
@@ -22,21 +22,23 @@ export const site: SiteContent = {
       { label: "Track Record", href: "#track-record" },
       { label: "Contact", href: "#contact" },
     ],
-    cta: { label: "Get in touch", href: "#contact" },
+    cta: { label: "Start a project", href: "#contact" },
   },
   hero: {
-    eyebrow: "Jobs & careers · Connected devices · Cluster Technology",
+    eyebrow: "Software consultancy · Connected devices · IoT UX",
     title: (
       <>
-        Build the samples that{" "}
-        <span className="italic text-accent">connect the world.</span>
+        Serve others as greater
+        <br className="hidden sm:block" /> than{" "}
+        <span className="italic text-accent">oneself.</span>
       </>
     ),
-    blurb: JOBS_DESCRIPTION,
-    primaryCta: { label: "See open roles", href: "/blog" },
+    blurb:
+      "Thought leadership on connected devices and human-centred design. We help organisations ship hardware and software people actually want to use — from firmware to the final pixel.",
+    primaryCta: { label: "Serve your roadmap", href: "#contact" },
     secondaryCta: { label: "How we work", href: "#approach" },
-    note: "// Serve others as greater than oneself.",
-    wordmark: "HAVEN CARTY",
+    note: "// You're only as good as the team you serve.",
+    wordmark: "SERVANTLEADERS",
   },
   values: {
     eyebrow: "The operating values",
@@ -133,18 +135,18 @@ export const site: SiteContent = {
   },
   contact: {
     eyebrow: "Start a conversation",
-    heading: "Build with us.",
+    heading: "Bring us the hardest part of your roadmap.",
     blurb:
-      "Apply for an open role, or tell us about the connected product you're building and we'll tell you, honestly, how we'd serve the team around it.",
-    email: "havencarty@gmail.com",
-    socials: ["LinkedIn", "GitHub", "Medium"],
+      "For leaders shipping connected products — from energy to music technology. Tell us what you're building and we'll tell you, honestly, how we'd serve the team around it.",
+    email: "hello@servantleaders.uk",
+    socials: ["LinkedIn", "Behance", "Medium", "GitHub"],
   },
   footer: {
     brand: "Haven Carty",
     blurb:
-      "Technical roles at Cluster Technology — engineering samples, firmware and quality assurance for connected devices.",
-    copyright: "Haven Carty",
-    location: "Twickenham · Leicester, United Kingdom",
+      "Serve others as greater than oneself. Software consultancy for connected devices, by Cluster Technology Limited.",
+    copyright: "Cluster Technology Limited",
+    location: "Leicester, United Kingdom",
     wordmark: "SERVE OTHERS",
   },
   blog: {
