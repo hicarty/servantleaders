@@ -41,6 +41,8 @@ export type SiteContent = {
     primaryCta: { label: string; href: string }
     secondaryCta: { label: string; href: string }
     note: string
+    /** Small gold label shown above the note in the hero callout. */
+    noteLabel?: string
     wordmark: string
   }
   values: {
@@ -79,6 +81,8 @@ export type SiteContent = {
     blurb?: string
     copyright: string
     location?: string
+    /** Series name shown at the right of the footer hairline. */
+    series?: string
     wordmark: string
   }
   blog: {

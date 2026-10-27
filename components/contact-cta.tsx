@@ -8,10 +8,11 @@ export function ContactCta() {
       <div className="mx-auto max-w-6xl px-6 py-20 md:py-28">
         <div className="grid gap-12 md:grid-cols-[1.2fr_1fr] md:gap-16">
           <div>
-            <p className="font-mono text-xs uppercase tracking-[0.25em] text-accent">
+            <span aria-hidden="true" className="mb-5 block h-[3px] w-12 bg-accent" />
+            <p className="font-sans font-bold text-xs uppercase tracking-[0.25em] text-accent">
               {site.contact.eyebrow}
             </p>
-            <h2 className="mt-4 text-balance font-serif text-3xl leading-[1.1] tracking-tight text-foreground md:text-5xl">
+            <h2 className="mt-4 text-balance font-serif font-bold text-3xl leading-[1.1] tracking-tight text-foreground md:text-5xl">
               {site.contact.heading}
             </h2>
             <p className="mt-6 max-w-md text-pretty leading-relaxed text-muted-foreground">
@@ -21,7 +22,7 @@ export function ContactCta() {
             <div className="mt-10 space-y-4">
               <a
                 href={`mailto:${site.contact.email}`}
-                className="block font-serif text-2xl tracking-tight text-foreground underline decoration-accent decoration-1 underline-offset-4 transition-opacity hover:opacity-70"
+                className="block font-serif font-bold text-2xl tracking-tight text-foreground underline decoration-accent decoration-1 underline-offset-4 transition-opacity hover:opacity-70"
               >
                 {site.contact.email}
               </a>
@@ -30,7 +31,7 @@ export function ContactCta() {
                   <a
                     key={s}
                     href="#"
-                    className="font-mono text-xs uppercase tracking-widest text-muted-foreground transition-colors hover:text-foreground"
+                    className="font-sans font-bold text-xs uppercase tracking-widest text-muted-foreground transition-colors hover:text-foreground"
                   >
                     {s}
                   </a>
@@ -46,7 +47,7 @@ export function ContactCta() {
             <div className="flex flex-col gap-2">
               <label
                 htmlFor="name"
-                className="font-mono text-[11px] uppercase tracking-widest text-muted-foreground"
+                className="font-sans font-bold text-[11px] uppercase tracking-widest text-muted-foreground"
               >
                 Name
               </label>
@@ -60,7 +61,7 @@ export function ContactCta() {
             <div className="flex flex-col gap-2">
               <label
                 htmlFor="company"
-                className="font-mono text-[11px] uppercase tracking-widest text-muted-foreground"
+                className="font-sans font-bold text-[11px] uppercase tracking-widest text-muted-foreground"
               >
                 Company
               </label>
@@ -74,7 +75,7 @@ export function ContactCta() {
             <div className="flex flex-col gap-2">
               <label
                 htmlFor="brief"
-                className="font-mono text-[11px] uppercase tracking-widest text-muted-foreground"
+                className="font-sans font-bold text-[11px] uppercase tracking-widest text-muted-foreground"
               >
                 The brief
               </label>
@@ -87,7 +88,7 @@ export function ContactCta() {
             </div>
             <button
               type="submit"
-              className="mt-2 rounded-full bg-foreground px-6 py-3 font-mono text-xs uppercase tracking-widest text-background transition-opacity hover:opacity-80"
+              className="mt-2 rounded-full bg-foreground px-6 py-3 font-sans font-bold text-xs uppercase tracking-widest text-background transition-opacity hover:opacity-80"
             >
               Send it over
             </button>

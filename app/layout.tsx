@@ -1,23 +1,14 @@
 import { Analytics } from '@vercel/analytics/next'
 import type { Metadata } from 'next'
-import { Geist, Geist_Mono, Instrument_Serif, Junge } from 'next/font/google'
+import { Inter, Libre_Baskerville } from 'next/font/google'
 import { site } from '@/content/site'
 import './globals.css'
 
-const geistSans = Geist({ variable: '--font-geist-sans', subsets: ['latin'] })
-const geistMono = Geist_Mono({
-  variable: '--font-geist-mono',
-  subsets: ['latin'],
-})
-const instrumentSerif = Instrument_Serif({
-  variable: '--font-instrument-serif',
-  weight: '400',
+const inter = Inter({ variable: '--font-inter', subsets: ['latin'] })
+const libreBaskerville = Libre_Baskerville({
+  variable: '--font-libre-baskerville',
+  weight: ['400', '700'],
   style: ['normal', 'italic'],
-  subsets: ['latin'],
-})
-const junge = Junge({
-  variable: '--font-junge',
-  weight: '400',
   subsets: ['latin'],
 })
 
@@ -52,9 +43,11 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} ${instrumentSerif.variable} ${junge.variable} bg-background`}
+      className={`${inter.variable} ${libreBaskerville.variable} bg-background`}
     >
       <body className="font-sans antialiased">
+        {/* navy edge bar */}
+        <div aria-hidden="true" className="pointer-events-none fixed inset-y-0 left-0 z-[60] w-1.5 bg-primary md:w-2" />
         {children}
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>

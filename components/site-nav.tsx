@@ -10,11 +10,11 @@ export function SiteNav() {
     <header className="sticky top-0 z-50 border-b border-border bg-background/80 backdrop-blur-md">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
         <a href="#top" className="flex items-baseline gap-2">
-          <span className="font-serif text-xl leading-none tracking-tight text-foreground">
+          <span className="font-serif font-bold text-xl leading-none tracking-tight text-foreground">
             {site.nav.brand}
           </span>
           {site.nav.brandSuffix && (
-            <span className="font-mono text-[10px] uppercase tracking-[0.25em] text-accent">
+            <span className="font-sans font-bold text-[10px] uppercase tracking-[0.25em] text-accent">
               {site.nav.brandSuffix}
             </span>
           )}
@@ -25,7 +25,7 @@ export function SiteNav() {
             <a
               key={link.href}
               href={link.href}
-              className="font-mono text-xs uppercase tracking-widest text-muted-foreground transition-colors hover:text-foreground"
+              className="font-sans font-bold text-xs uppercase tracking-widest text-muted-foreground transition-colors hover:text-foreground"
             >
               {link.label}
             </a>
@@ -34,7 +34,7 @@ export function SiteNav() {
 
         <a
           href={site.nav.cta.href}
-          className="hidden rounded-full bg-foreground px-5 py-2 font-mono text-xs uppercase tracking-widest text-background transition-opacity hover:opacity-80 md:inline-block"
+          className="hidden rounded-full bg-foreground px-5 py-2 font-sans font-bold text-xs uppercase tracking-widest text-background transition-opacity hover:opacity-80 md:inline-block"
         >
           {site.nav.cta.label}
         </a>
@@ -61,7 +61,7 @@ export function SiteNav() {
               key={link.href}
               href={link.href}
               onClick={() => setOpen(false)}
-              className="py-2 font-mono text-sm uppercase tracking-widest text-muted-foreground"
+              className="py-2 font-sans font-bold text-sm uppercase tracking-widest text-muted-foreground"
             >
               {link.label}
             </a>
@@ -69,7 +69,7 @@ export function SiteNav() {
           <a
             href={site.nav.cta.href}
             onClick={() => setOpen(false)}
-            className="mt-2 rounded-full bg-foreground px-5 py-2.5 text-center font-mono text-xs uppercase tracking-widest text-background"
+            className="mt-2 rounded-full bg-foreground px-5 py-2.5 text-center font-sans font-bold text-xs uppercase tracking-widest text-background"
           >
             {site.nav.cta.label}
           </a>

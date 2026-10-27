@@ -6,7 +6,7 @@ export function SiteFooter() {
       <div className="mx-auto max-w-6xl px-6 pt-16">
         <div className="flex flex-col justify-between gap-6 pb-12 md:flex-row md:items-end">
           <div className="max-w-sm">
-            <p className="font-serif text-xl tracking-tight text-foreground">
+            <p className="font-serif font-bold text-xl tracking-tight text-foreground">
               {site.footer.brand}
             </p>
             {site.footer.blurb && (
@@ -15,7 +15,7 @@ export function SiteFooter() {
               </p>
             )}
           </div>
-          <p className="font-mono text-xs leading-relaxed text-muted-foreground">
+          <p className="text-sm leading-relaxed text-muted-foreground">
             © {new Date().getFullYear()} {site.footer.copyright}
             {site.footer.location && (
               <>
@@ -24,6 +24,12 @@ export function SiteFooter() {
               </>
             )}
           </p>
+        </div>
+
+        {/* gold hairline + name / series */}
+        <div className="flex items-center justify-between gap-6 border-t border-accent py-6 font-sans font-bold text-xs uppercase tracking-[0.22em]">
+          <span className="text-foreground">{site.footer.brand}</span>
+          {site.footer.series && <span className="text-accent">{site.footer.series}</span>}
         </div>
       </div>
 
