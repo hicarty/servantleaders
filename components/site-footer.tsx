@@ -1,3 +1,5 @@
+import { site } from "@/content/site"
+
 export function SiteFooter() {
   return (
     <footer className="bg-background">
@@ -5,11 +7,22 @@ export function SiteFooter() {
         <div className="flex flex-col justify-between gap-6 pb-12 md:flex-row md:items-end">
           <div className="max-w-sm">
             <p className="font-serif text-xl tracking-tight text-foreground">
-              Riaz Virani
+              {site.footer.brand}
             </p>
+            {site.footer.blurb && (
+              <p className="mt-3 text-pretty leading-relaxed text-muted-foreground">
+                {site.footer.blurb}
+              </p>
+            )}
           </div>
           <p className="font-mono text-xs leading-relaxed text-muted-foreground">
-            © {new Date().getFullYear()} Riaz Virani
+            © {new Date().getFullYear()} {site.footer.copyright}
+            {site.footer.location && (
+              <>
+                <br />
+                {site.footer.location}
+              </>
+            )}
           </p>
         </div>
       </div>
@@ -20,7 +33,7 @@ export function SiteFooter() {
         className="pointer-events-none select-none overflow-hidden border-t border-border"
       >
         <p className="-mb-[1.5vw] whitespace-nowrap text-center text-[18vw] font-semibold leading-none tracking-tighter text-foreground/[0.06]">
-          SERVE OTHERS
+          {site.footer.wordmark}
         </p>
       </div>
     </footer>

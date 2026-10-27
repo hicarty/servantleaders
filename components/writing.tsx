@@ -1,35 +1,4 @@
-const articles = [
-  {
-    date: "18 Mar 2026",
-    title: "Future Trends for UX/UI Designers: Staying Relevant to 2060",
-    tag: "UX",
-    href: "#",
-  },
-  {
-    date: "27 Oct 2024",
-    title: "Building Integrated AgilePM — User eXperiences",
-    tag: "Agile",
-    href: "#",
-  },
-  {
-    date: "03 Mar 2025",
-    title: "eBay creates an accessibility tool for designers and engineers",
-    tag: "Accessibility",
-    href: "#",
-  },
-  {
-    date: "26 Jul 2024",
-    title: "My experience working at Marshall Amplification PLC",
-    tag: "Career",
-    href: "#",
-  },
-  {
-    date: "24 Mar 2025",
-    title: "SAFe Scalable Agile Framework Updates",
-    tag: "Agile",
-    href: "#",
-  },
-]
+import { site } from "@/content/site"
 
 export function Writing() {
   return (
@@ -38,23 +7,22 @@ export function Writing() {
         <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
           <div className="max-w-xl">
             <p className="font-mono text-xs uppercase tracking-[0.25em] text-accent">
-              Journal & perspective
+              {site.writing.eyebrow}
             </p>
             <h2 className="mt-4 text-balance font-serif text-3xl leading-tight tracking-tight text-foreground md:text-5xl">
-              Ideas for business constancy.
+              {site.writing.heading}
             </h2>
           </div>
           <p className="max-w-sm text-pretty leading-relaxed text-muted-foreground">
-            Notes on leadership, strategy, culture and the daily decisions that make
-            a business durable — adapted for the Riaz Virani campaign.
+            {site.writing.aside}
           </p>
         </div>
 
         <ul className="mt-12 border-t border-border">
-          {articles.map((article) => (
+          {site.writing.articles.map((article) => (
             <li key={article.title}>
               <a
-                href={article.href === "#" ? "/blog" : article.href}
+                href={article.href}
                 className="group flex flex-col gap-2 border-b border-border py-6 transition-colors hover:bg-secondary/60 md:flex-row md:items-center md:gap-8 md:px-2"
               >
                 <span className="font-mono text-xs tracking-wider text-muted-foreground md:w-28 md:shrink-0">

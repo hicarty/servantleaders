@@ -1,6 +1,7 @@
 import { Analytics } from '@vercel/analytics/next'
 import type { Metadata } from 'next'
 import { Geist, Geist_Mono, Instrument_Serif, Junge } from 'next/font/google'
+import { site } from '@/content/site'
 import './globals.css'
 
 const geistSans = Geist({ variable: '--font-geist-sans', subsets: ['latin'] })
@@ -21,9 +22,8 @@ const junge = Junge({
 })
 
 export const metadata: Metadata = {
-  title: 'Riaz Virani — Business Consultancy with Constancy',
-  description:
-    'Riaz Virani is a business consultancy campaign built around clear thinking, responsible growth and the constancy to turn good intentions into durable results.',
+  title: site.seo.title,
+  description: site.seo.description,
   generator: 'v0.app',
   icons: {
     icon: [

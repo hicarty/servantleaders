@@ -1,22 +1,27 @@
 import Link from "next/link"
+import { notFound } from "next/navigation"
 import { BlogFooter, BlogNav } from "@/components/blog-article"
-import { blogPosts } from "@/components/blog-posts"
+import { site } from "@/content/site"
 
 export function BlogPage() {
+  if (!site.blog.enabled) notFound()
+
   return (
     <main className="min-h-screen bg-background text-foreground">
       <BlogNav />
       <header className="mx-auto max-w-6xl border-b border-border px-6 pb-12 pt-20">
-        <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-[#4b7771]">Writing &amp; research</p>
+        <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-[#4b7771]">
+          {site.blog.index.eyebrow}
+        </p>
         <h1 className="mt-4 max-w-xl font-serif text-5xl leading-none tracking-tight md:text-6xl">
-          Ideas for building with <em className="text-[#4b7771]">purpose.</em>
+          {site.blog.index.heading}
         </h1>
         <p className="mt-5 max-w-xl text-sm leading-relaxed text-muted-foreground">
-          Essays on UX, connected products, accessibility, agile delivery, leadership and creating lasting value.
+          {site.blog.index.blurb}
         </p>
       </header>
       <ul className="mx-auto mt-12 max-w-6xl border-t border-border px-6">
-        {blogPosts.map((post) => (
+        {site.blog.posts.map((post) => (
           <li key={post.slug}>
             <Link
               href={`/blog/${post.slug}`}

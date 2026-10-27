@@ -1,16 +1,9 @@
-import type { Metadata } from "next"
+import type { ReactNode } from "react"
 import Image from "next/image"
-import { BlogArticle } from "@/components/blog-article"
-import { getBlogPost } from "@/components/blog-posts"
 
-const post = getBlogPost("safe")
-
-export const metadata: Metadata = { title: `${post.title} — Riaz Virani` }
-
-export default function SafePage() {
-  return (
-    <BlogArticle date={post.date} title={post.title} tag={post.tag}>
-      <p>SAFe continues to evolve around a central tension: structure can make agile enterprise-ready, but too much structure can remove its adaptability.</p>
+export const body: ReactNode = (
+  <>
+<p>SAFe continues to evolve around a central tension: structure can make agile enterprise-ready, but too much structure can remove its adaptability.</p>
       <Image
         src="/images/Firefly_remove%20820139.png"
         alt="SAFe framework diagram showing a servant leader and connected backlogs"
@@ -33,6 +26,5 @@ export default function SafePage() {
         <li><strong>Measurement improved:</strong> Outcomes, Flow, and Competency became the three measurement domains, with optional OKRs added.</li>
         <li><strong>Business Agility broadened:</strong> Continuous Learning Culture became foundational across all configurations, while guidance for AI, Big Data, Cloud, and business-wide agility expanded.</li>
       </ol>
-    </BlogArticle>
-  )
-}
+  </>
+)

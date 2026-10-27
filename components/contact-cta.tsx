@@ -1,5 +1,7 @@
 "use client"
 
+import { site } from "@/content/site"
+
 export function ContactCta() {
   return (
     <section id="contact" className="border-b border-border">
@@ -7,26 +9,24 @@ export function ContactCta() {
         <div className="grid gap-12 md:grid-cols-[1.2fr_1fr] md:gap-16">
           <div>
             <p className="font-mono text-xs uppercase tracking-[0.25em] text-accent">
-              Start a conversation
+              {site.contact.eyebrow}
             </p>
             <h2 className="mt-4 text-balance font-serif text-3xl leading-[1.1] tracking-tight text-foreground md:text-5xl">
-              Bring us the hardest part of your roadmap.
+              {site.contact.heading}
             </h2>
             <p className="mt-6 max-w-md text-pretty leading-relaxed text-muted-foreground">
-              For leaders shipping connected products — from energy to music
-              technology. Tell us what you&apos;re building and we&apos;ll tell
-              you, honestly, how we&apos;d serve the team around it.
+              {site.contact.blurb}
             </p>
 
             <div className="mt-10 space-y-4">
               <a
-                href="mailto:hello@riazvirani.com"
+                href={`mailto:${site.contact.email}`}
                 className="block font-serif text-2xl tracking-tight text-foreground underline decoration-accent decoration-1 underline-offset-4 transition-opacity hover:opacity-70"
               >
-                hello@riazvirani.com
+                {site.contact.email}
               </a>
               <div className="flex flex-wrap gap-x-6 gap-y-2">
-                {["LinkedIn", "Behance", "Medium", "GitHub"].map((s) => (
+                {site.contact.socials.map((s) => (
                   <a
                     key={s}
                     href="#"
