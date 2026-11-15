@@ -15,9 +15,9 @@ const jetBrainsMono = JetBrains_Mono({
 })
 
 export const metadata: Metadata = {
-  title: 'Haven Carty — Serve Others as Greater than Oneself',
+  title: 'Fowler Christina | Conversations With The Fathers',
   description:
-    'Software consultancy for connected devices. Human-centred design, IoT user experience, web development and firmware — led by Haven Carty, Director of Cluster Technology Limited. Open roles at Cluster Technology.',
+    'A home for Fowler Christina and her writings, Conversations With The Fathers. Pause, listen, and find meaning in words for the journey.',
   generator: 'v0.app',
   icons: {
     icon: [
